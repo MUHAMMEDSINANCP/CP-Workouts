@@ -99,46 +99,49 @@ class _RunningSpeedViewState extends State<RunningSpeedView> {
             height: 80,
             child: Column(
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      1,
-                      2,
-                      3,
-                      4,
-                      5,
-                      6,
-                      7,
-                      8,
-                      9,
-                      10,
-                      11,
-                      12,
-                      13,
-                      14,
-                      15,
-                      16,
-                      17,
-                      18,
-                      19,
-                      20,
-                      21,
-                      22,
-                      23,
-                      24
-                    ].map((valObj) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 2),
-                        width: 10,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: valObj == 10
-                              ? TColor.primary
-                              : const Color(0xffE6E6E6),
-                        ),
-                      );
-                    }).toList()),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24
+                      ].map((valObj) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 2),
+                          width: 10,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: valObj == 10
+                                ? TColor.primary
+                                : const Color(0xffE6E6E6),
+                          ),
+                        );
+                      }).toList()),
+                ),
               ],
             ),
           )

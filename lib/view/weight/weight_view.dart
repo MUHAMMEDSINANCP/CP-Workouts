@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cp_worlouts/common_widget/bottom_app_bar.dart';
-import 'package:cp_worlouts/view/home/home_view.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
 import '../../common_widget/border_button.dart';

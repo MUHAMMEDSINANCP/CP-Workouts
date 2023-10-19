@@ -87,7 +87,7 @@ class _RunningHeartViewState extends State<RunningHeartView> {
                       ),
                     ],
                   ),
-                  Container(
+                  SizedBox(
                     width: media.width * 0.55,
                     height: media.width * 0.55,
                     child: CustomPaint(
@@ -131,28 +131,31 @@ class _RunningHeartViewState extends State<RunningHeartView> {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: 80,
             child: Column(
               children: [
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: dataArr.map((valObj) {
-                      var val = valObj["val"];
-                      var index = valObj["no"];
-                      return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        width: 2,
-                        height: (val * 70) / 150,
-                        decoration: BoxDecoration(
-                            color: index > 12 && index < 18
-                                ? TColor.primary
-                                : const Color(0xffE6E6E6),
-                            borderRadius: BorderRadius.circular(2)),
-                      );
-                    }).toList()),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: dataArr.map((valObj) {
+                        var val = valObj["val"];
+                        var index = valObj["no"];
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: 3,
+                          height: (val * 70) / 150,
+                          decoration: BoxDecoration(
+                              color: index > 0 && index < 18
+                                  ? TColor.primary
+                                  : const Color(0xffE6E6E6),
+                              borderRadius: BorderRadius.circular(2)),
+                        );
+                      }).toList()),
+                ),
                 Container(
-                  height: 1,
+                  height: 3,
                   color: const Color(0xffE6E6E6),
                 )
               ],

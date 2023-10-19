@@ -12,7 +12,6 @@ class RunningDensityView extends StatefulWidget {
 }
 
 class _RunningDensityViewState extends State<RunningDensityView> {
-  
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -51,11 +50,11 @@ class _RunningDensityViewState extends State<RunningDensityView> {
                       ),
                     ],
                   ),
-                  Container(
+                  SizedBox(
                     width: media.width * 0.55,
                     height: media.width * 0.55,
                     child: CustomPaint(
-                      painter: ClockTick(isAnti: true ),
+                      painter: ClockTick(isAnti: true),
                     ),
                   ),
                   SimpleCircularProgressBar(
@@ -95,26 +94,59 @@ class _RunningDensityViewState extends State<RunningDensityView> {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: 80,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center ,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20].map((valObj) {
-                      
-                      return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        width: 8,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            color: valObj > 10 ? const Color(0xffE6E6E6)  : TColor.primary
-                                ,
-                            borderRadius: BorderRadius.circular(4)),
-                      );
-                    }).toList()),
-                
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30
+                      ].map((valObj) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 4),
+                          width: 8,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: valObj > 15
+                                  ? const Color(0xffE6E6E6)
+                                  : TColor.primary,
+                              borderRadius: BorderRadius.circular(4)),
+                        );
+                      }).toList()),
+                ),
               ],
             ),
           )

@@ -1,10 +1,13 @@
 import 'dart:ui';
-
+import 'package:cp_worlouts/view/exercise/exercise_view.dart';
+import 'package:cp_worlouts/view/login/on_boarding_view.dart';
 import 'package:cp_worlouts/view/meal_plan/meal_plan_view.dart';
 import 'package:cp_worlouts/view/menu/fitness_view.dart';
 import 'package:cp_worlouts/view/menu/support_view.dart';
-import 'package:cp_worlouts/view/menu/tips_view.dart';
+import 'package:cp_worlouts/view/menu/daily_tips_view.dart';
 import 'package:cp_worlouts/view/menu/yoga_view.dart';
+import 'package:cp_worlouts/view/settings/settings_view.dart';
+import 'package:cp_worlouts/view/tips/tips_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/menu_cell.dart';
@@ -40,7 +43,7 @@ class _MenuViewState extends State<MenuView> {
       "right_icon": "",
     },
     {
-      "name": "Walking",
+      "name": "Previous Workout",
       "icon": "assets/img/walking.png",
       "right_icon": "",
     },
@@ -60,22 +63,23 @@ class _MenuViewState extends State<MenuView> {
     {"name": "Home", "image": "assets/img/menu_home.png", "tag": "1"},
     {"name": "Weight", "image": "assets/img/menu_weight.png", "tag": "2"},
     {
-      "name": "Traning plan",
+      "name": "Fitness Status",
       "image": "assets/img/menu_traning_plan.png",
       "tag": "3"
     },
-    {"name": "Meal Plan", "image": "assets/img/menu_meal_plan.png", "tag": "5"},
-    {"name": "Schedule", "image": "assets/img/menu_schedule.png", "tag": "6"},
-    {"name": "Running", "image": "assets/img/menu_running.png", "tag": "7"},
+    {"name": "Meal Plan", "image": "assets/img/menu_meal_plan.png", "tag": "4"},
+    {"name": "Schedule", "image": "assets/img/menu_schedule.png", "tag": "5"},
+    {"name": "Running", "image": "assets/img/menu_running.png", "tag": "6"},
+    {"name": "Tips", "image": "assets/img/menu_tips.png", "tag": "7"},
     {"name": "Exercises", "image": "assets/img/menu_exercises.png", "tag": "8"},
-    {"name": "Tips", "image": "assets/img/menu_tips.png", "tag": "9"},
+    {"name": "Daily Tips", "image": "assets/img/fitness.png", "tag": "9"},
+    {"name": "Support", "image": "assets/img/menu_support.png", "tag": "10"},
     {
       "name": "Statistics",
       "image": "assets/img/menu_traning_status.png",
-      "tag": "4"
+      "tag": "11"
     },
-    {"name": "Settings", "image": "assets/img/menu_settings.png", "tag": "10"},
-    {"name": "Support", "image": "assets/img/menu_support.png", "tag": "11"},
+    {"name": "Settings", "image": "assets/img/menu_settings.png", "tag": "12"},
   ];
 
   @override
@@ -124,7 +128,7 @@ class _MenuViewState extends State<MenuView> {
                               ),
                               Expanded(
                                 child: Text(
-                                  "Andrew Tate",
+                                  "My Fitness Status",
                                   style: TextStyle(
                                       fontSize: 20,
                                       color: TColor.secondaryText,
@@ -150,6 +154,13 @@ class _MenuViewState extends State<MenuView> {
                                     mObj: itemObj,
                                     onPressed: () {
                                       // Navigator.pop(context);
+                                      if (index == 0) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const RunningView()));
+                                      }
                                       if (index == 1) {
                                         Navigator.push(
                                             context,
@@ -157,12 +168,35 @@ class _MenuViewState extends State<MenuView> {
                                                 builder: (context) =>
                                                     const YogaView()));
                                       }
+
+                                      if (index == 2) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const ExerciseView()));
+                                      }
+
+                                      if (index == 3) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const ScheduleView()));
+                                      }
                                       if (index == 4) {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
                                                     const FitnessView()));
+                                      }
+                                      if (index == 5) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const ExerciseView2()));
                                       }
                                     },
                                   );
@@ -177,19 +211,28 @@ class _MenuViewState extends State<MenuView> {
                         SizedBox(
                           height: kTextTabBarHeight,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                "Switch Account",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    color: TColor.secondaryText,
-                                    fontWeight: FontWeight.w700),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const OnBoardingView()));
+                                },
+                                child: const Text(
+                                  "Clear All Data",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.red,
+                                      fontWeight: FontWeight.w700),
+                                ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 20),
-                                child: Image.asset("assets/img/next.png",
-                                    width: 18, height: 18),
+                              const Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                                size: 25,
                               ),
                             ],
                           ),
@@ -350,23 +393,29 @@ class _MenuViewState extends State<MenuView> {
                   case "3":
                     Scaffold.of(context).openDrawer();
                     break;
-                  case "5":
+                  case "4":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const MealPlanView()));
                     break;
-                  case "6":
+                  case "5":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const ScheduleView()));
                     break;
-                  case "7":
+                  case "6":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const RunningView()));
+                    break;
+                  case "7":
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TipsView()));
                     break;
                   case "8":
                     Navigator.push(
@@ -375,16 +424,26 @@ class _MenuViewState extends State<MenuView> {
                             builder: (context) => const ExerciseView2()));
                     break;
                   case "9":
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => FitnessTipsScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DailyTips()));
                     break;
-                  case "11":
+                  case "10":
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const SupportView()));
+                    break;
+                  // case "11":
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) => const SettingsView()));
+                  //   break;
+                  case "12":
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsView()));
                     break;
                   default:
                 }

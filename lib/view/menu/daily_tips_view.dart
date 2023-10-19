@@ -2,7 +2,7 @@ import 'package:cp_worlouts/common/color_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class FitnessTipsScreen extends StatelessWidget {
+class DailyTips extends StatelessWidget {
   final List<String> tips = [
     "Stay hydrated. Drink plenty of water throughout the day to keep your body well-hydrated.",
     "Set realistic fitness goals and track your progress to stay motivated.",
@@ -35,7 +35,7 @@ class FitnessTipsScreen extends StatelessWidget {
     "Stay positive and motivated throughout your fitness journey.",
   ];
 
-  FitnessTipsScreen({super.key});
+  DailyTips({super.key});
 
   @override
   Widget build(BuildContext context) {

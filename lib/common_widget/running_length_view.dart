@@ -53,13 +53,13 @@ class _RunningLengthViewState extends State<RunningLengthView> {
                   SimpleCircularProgressBar(
                     size: media.width * 0.65,
                     mergeMode: true,
-                    animationDuration: 1,
+                    animationDuration: 2,
                     backColor: const Color(0xffE6E6E6),
                     progressColors: [TColor.primary],
                     progressStrokeWidth: 15,
                     backStrokeWidth: 15,
                     startAngle: 0,
-                    valueNotifier: ValueNotifier(100),
+                    valueNotifier: ValueNotifier(80),
                   ),
                 ]),
                 Padding(
@@ -87,14 +87,14 @@ class _RunningLengthViewState extends State<RunningLengthView> {
               ],
             ),
           ),
-          Container(
+          SizedBox(
             height: 80,
             child: Column(
               children: [
                 Container(
                   width: double.maxFinite,
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(left: media.width * 0.9 * 0.7 ),
+                  padding: EdgeInsets.only(left: media.width * 0.9 * 0.7),
                   child: Image.asset(
                     "assets/img/r_location.png",
                     width: 25,
@@ -102,7 +102,7 @@ class _RunningLengthViewState extends State<RunningLengthView> {
                   ),
                 ),
                 Container(
-                  height: 1,
+                  height: 3,
                   color: const Color(0xffE6E6E6),
                 )
               ],
