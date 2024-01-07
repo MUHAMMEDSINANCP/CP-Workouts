@@ -6,7 +6,7 @@ Utilizing clean architecture and Flutter state management, CP Workouts delivers 
 
 User Interface Design : Crafted with Flutter widgets and modern design principles for an intuitive and engaging experience.
 
-Customized Workout Plans : Tailored plans according to individual fitness levels and goals.
+Customized Workout Plans : Tailored plans according to individual fitness levels and goals. 
 
 Exercise Tracking & Analytics : Real-time tracking of exercises and performance insights.
 
